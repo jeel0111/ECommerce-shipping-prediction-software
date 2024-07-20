@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Work Sans", serif;
+    padding: 0px;
+    margin: 0px;
+    color: #FF6969;
+}
+
+
+
+.st {
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.txt {
+    padding: 5px;
+    border-radius: 20px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.navbar {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 30px;
+    background-color: #E4003A;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 20px;
+}
+
+h1 {
+    color: #FFF5E1;
+}
+h2{
+    color: #E4003A;
+}
+
+.container {
+    width: 100%;
+    /* height: 100%; */
+    --size: 150px; /* control the size */
+    --color: #ffdcdc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 110vh;
+  
+    background: radial-gradient(
+        circle at 15% 30%,
+        transparent 40%,
+        var(--color) 41%
+      ),
+      radial-gradient(circle at 85% 30%, transparent 40%, var(--color) 41%),
+      radial-gradient(circle at 50% 70%, transparent 40%, var(--color) 41%),
+      radial-gradient(circle at 15% 70%, transparent 40%, var(--color) 41%),
+      radial-gradient(circle at 85% 70%, transparent 40%, var(--color) 41%),
+      linear-gradient(
+        45deg,
+        var(--color) 25%,
+        rgba(0, 0, 0, 0.067) 0,
+        rgba(0, 0, 0, 0.067) 50%,
+        var(--color) 0,
+        var(--color) 75%,
+        #1111 0,
+        #1111 100%,
+        var(--color) 0
+      );
+    background-size: var(--size) var(--size);
+  }
+  
+
+
+
+.loader {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.truckWrapper {
+    width: 500px;
+    height: 165px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    overflow-x: hidden;
+}
+
+/* truck upper body */
+.truckBody {
+    width: 300px;
+    height: fit-content;
+    margin-bottom: 15px;
+    animation: motion 1s linear infinite;
+}
+
+/* truck suspension animation*/
+@keyframes motion {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(3px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* truck's tires */
+.truckTires {
+    width: 250px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 0px 15px;
+    position: absolute;
+    bottom: 0;
+}
+
+.truckTires svg {
+    width: 50px;
+}
+
+.road {
+    width: 100%;
+    height: 1.5px;
+    background-color: #282828;
+    position: relative;
+    bottom: 0;
+    align-self: flex-end;
+    border-radius: 3px;
+}
+
+.road::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background-color: #282828;
+    right: -50%;
+    border-radius: 3px;
+    animation: roadAnimation 1.4s linear infinite;
+    border-left: 10px solid white;
+}
+
+.road::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 100%;
+    background-color: #282828;
+    right: -65%;
+    border-radius: 3px;
+    animation: roadAnimation 2.5s linear infinite;
+    border-left: 4px solid white;
+}
+
+.lampPost {
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    right: -90%;
+    height: 150px;
+    animation: roadAnimation 2.5s linear infinite;
+}
+
+@keyframes roadAnimation {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(-1000px);
+    }
+}
+
+.right{
+    /* height: 500px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    flex-direction: column;
+}
+.left{
+    width: 60%;
+    /* padding: 30px; */
+    padding-top: 0px;
+    padding-left: 10px;
+    display: flex;
+    align-items: flex-start;
+    /* justify-content: center; */
+    flex-direction: column;
+    gap: 20px;
+}
+button:hover{
+    transform: scale(1.1);
+}
+.predict{
+    margin-top: 20px;
+}

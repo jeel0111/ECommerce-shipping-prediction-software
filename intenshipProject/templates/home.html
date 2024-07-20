@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>On-Time Delivery Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <img src="{{url_for('static',filename='images/cargo-ship.png')}}" alt="logo" width="50px" height="50px">
+        <h1>On-Time Delivery Prediction</h1>
+    </nav>
+    <div class="container">
+        <div class="left">
+            <h2>Let's check whether the package will reach on time.</h2>
+            <form action="/result" method="POST">
+                <!--input 1-->
+                <label>Q1. Select the gender of the customer.</lable>
+                    <select required name="gender" class="st" style="margin-left: 250px;">
+                        <option value="" disabled selected>-- select an option --</option>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select><br><br>
+                    <!--input 2-->
+                    <lable>Q2. Select the warehouse block that is in charge.</lable>
+                    <select required name="warehouse_block" class="st" style="margin-left: 165px;">
+                        <option value="" disabled selected>-- select an option --</option>
+                        <option value="A">Warehouse A</option>
+                        <option value="B">Warehouse B</option>
+                        <option value="C">Warehouse C</option>
+                        <option value="D">Warehouse D</option>
+                        <option value="F">Warehouse F</option>
+                    </select><br><br>
+                    <!--input 3-->
+                    <lable>Q3. Select the mode of shipment.</lable>
+                    <select required name="mode_of_shipment" class="st" style="margin-left: 283px;">
+                        <option value="" disabled selected>-- select an option --</option>
+                        <option value="Ship">Ship</option>
+                        <option value="Flight">Flight</option>
+                        <option value="Road">Road</option>
+                    </select><br><br>
+                    <!--input 4-->
+                    <lable>Q4. Select the product importance.</lable>
+                    <select required name="product_importance" class="st" style="margin-left: 268px;">
+                        <option value="" disabled selected>-- select an option --</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select><br><br>
+                    <!--input 5-->
+                    <lable>Q5. Select the number of calls that the customer has made.</lable>
+                    <select required name="customer_care_calls" class="st" style="margin-left: 86px;">
+                        <option value="" disabled selected>-- select an option --</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select><br><br>
+                    <!--input 6-->
+                    <lable>Q6. Select the purchases that the customer had made.</lable>
+                    <select required name="prior_purchases" class="st" style="margin-left: 124px;">
+                        <option value="" disabled selected>-- select an option --</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                    </select><br><br>
+                    <!-- Add this input for arrival status -->
+                    <!--input 7-->
+                    <label>Q7. Did the shipment arrive on time?</lable>
+                        <select required name="arrival" class="st" style="margin-left: 252px;">
+                            <option value="" disabled selected>-- select an option --</option>
+                            <option value="1">Late</option>
+                            <option value="0">On Time</option>
+                        </select><br><br>
+
+                        <!--input 7-->
+                        <lable>Q8. Select the cost of the product (in USD).</lable>
+                        <input type="number" placeholder="Enter the product cost" name="cost_of_the_product" required
+                            class='txt' style="margin-left: 205px;"><br><br>
+                        <!--input 8-->
+                        <lable>Q9. Select the discount given to the customer.</lable>
+                        <input type="number" placeholder="Enter the discount" name="discount_offered" required
+                            class='txt' style="margin-left: 179px;"><br><br>
+                        <!--input 9-->
+                        <lable>Q10. Select the weight (in grams) of the product.</lable>
+                        <input type="number" placeholder="Enter the product's weight" name="weight_in_gms" required
+                            class='txt' style="margin-left: 160px;"><br><br>
+                        <div class="parent">
+                            <button type="submit" class="child" value="Submit" style="padding: 5px 20px; background: #E4003A; color:white;cursor: pointer; transition: .2s;">Submit</button>
+                            <h2 class="predict">Probability of Arriving on Time: {{prediction}}%</h2>
+                        </div>
+            </form>
+        </div>
+        <div class="right">
+            
+            <img src="{{url_for('static',filename='images/Cargo.gif')}}" alt="" width="500px">
+
+        </div>
+
+    </div>
+</body>
+
+</html>
